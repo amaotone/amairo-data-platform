@@ -1,0 +1,6 @@
+amairo_data:
+  outputs:
+    dev:
+      type: duckdb
+      path: ./dev.duckdb
+  target: dev

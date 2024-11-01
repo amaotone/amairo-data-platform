@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "database": "${workspaceFolder:amairo-data-platform}/dbt/dev.duckdb",
+            "name": "dev"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
