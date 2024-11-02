@@ -23,9 +23,9 @@ jobs:
 
       - name: Generate dbt docs
         run: |
-          dbt deps
-          dbt build
-          dbt docs generate
+          uv run dbt deps
+          uv run dbt build
+          uv run dbt docs generate
 
       - name: Copy files
         run: |
