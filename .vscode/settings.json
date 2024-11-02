@@ -18,5 +18,7 @@
   "[jinja-yaml]": {
     "editor.defaultFormatter": "innoverio.vscode-dbt-power-user",
     "prettier.tabWidth": 2
-  }
+  },
+  "dbt.perspectiveTheme": "Pro Dark",
+  "dbt.queryLimit": 1000
 }

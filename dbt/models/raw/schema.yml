@@ -1,3 +1,366 @@
 models:
-  - name: raw_oracles_elixir__match_data
+  - name: raw_oracles_elixir__matches
     description: LoL eSports各リージョンの試合結果。https://oracleselixir.com
+    columns:
+      - name: gameid
+        description: Riot GamesのAPIで使用される一意の識別子
+        data_tests:
+          - not_null
+        data_type: varchar
+      - name: datacompleteness
+        description: データの完全性
+        data_type: varchar
+      - name: url
+        description: 試合のURL
+        data_type: varchar
+      - name: league
+        description: リーグ名
+        data_type: varchar
+      - name: year
+        description: 年
+        data_type: bigint
+      - name: split
+        description: シーズン
+        data_type: varchar
+      - name: playoffs
+        data_type: bigint
+      - name: date
+        description: 試合日
+        data_type: timestamp
+      - name: game
+        description: 試合番号
+        data_type: bigint
+      - name: patch
+        description: パッチバージョン
+        data_type: double
+      - name: participantid
+        description: チームの参加者ID
+        data_type: bigint
+      - name: side
+        description: チームのサイド
+        data_type: varchar
+      - name: position
+        description: ポジション
+        data_type: varchar
+      - name: playername
+        description: プレイヤー名
+        data_type: varchar
+      - name: playerid
+        description: プレイヤーID
+        data_type: varchar
+      - name: teamname
+        description: チーム名
+        data_type: varchar
+      - name: teamid
+        description: チームID
+        data_type: varchar
+      - name: champion
+        description: 'チャンピオン名'
+        data_type: varchar
+      - name: ban1
+        description: 'バン'
+        data_type: varchar
+      - name: ban2
+        description: 'バン'
+        data_type: varchar
+      - name: ban3
+        description: 'バン'
+        data_type: varchar
+      - name: ban4
+        description: 'バン'
+        data_type: varchar
+      - name: ban5
+        description: 'バン'
+        data_type: varchar
+      - name: pick1
+        description: 'ピック'
+        data_type: varchar
+      - name: pick2
+        description: 'ピック'
+        data_type: varchar
+      - name: pick3
+        description: 'ピック'
+        data_type: varchar
+      - name: pick4
+        description: 'ピック'
+        data_type: varchar
+      - name: pick5
+        description: 'ピック'
+        data_type: varchar
+      - name: gamelength
+        description: '試合時間'
+        data_type: bigint
+      - name: result
+        data_type: bigint
+      - name: kills
+        description: 'キル数'
+        data_type: bigint
+      - name: deaths
+        description: 'デス数'
+        data_type: bigint
+      - name: assists
+        description: 'アシスト数'
+        data_type: bigint
+      - name: teamkills
+        description: 'チーム合計キル数'
+        data_type: bigint
+      - name: teamdeaths
+        description: 'チーム合計デス数'
+        data_type: bigint
+      - name: doublekills
+        description: 'ダブルキルの回数'
+        data_type: bigint
+      - name: triplekills
+        description: 'トリプルキルの回数'
+        data_type: bigint
+      - name: quadrakills
+        description: 'クアドラキルの回数'
+        data_type: bigint
+      - name: pentakills
+        description: 'ペンタキルの回数'
+        data_type: bigint
+      - name: firstblood
+        data_type: bigint
+      - name: firstbloodkill
+        data_type: bigint
+      - name: firstbloodassist
+        data_type: bigint
+      - name: firstbloodvictim
+        data_type: bigint
+      - name: team kpm
+        data_type: double
+      - name: ckpm
+        data_type: double
+        description: Average combined kills per minute (team kills + opponent kills)
+      - name: firstdragon
+        data_type: bigint
+      - name: dragons
+        data_type: bigint
+      - name: opp_dragons
+        data_type: bigint
+      - name: elementaldrakes
+        data_type: varchar
+      - name: opp_elementaldrakes
+        data_type: varchar
+      - name: infernals
+        data_type: bigint
+      - name: mountains
+        data_type: bigint
+      - name: clouds
+        data_type: bigint
+      - name: oceans
+        data_type: bigint
+      - name: chemtechs
+        data_type: varchar
+      - name: hextechs
+        data_type: varchar
+      - name: dragons (type unknown)
+        data_type: varchar
+      - name: elders
+        data_type: bigint
+      - name: opp_elders
+        data_type: bigint
+      - name: firstherald
+        data_type: varchar
+      - name: heralds
+        data_type: varchar
+      - name: opp_heralds
+        data_type: varchar
+      - name: void_grubs
+        data_type: varchar
+      - name: opp_void_grubs
+        data_type: varchar
+      - name: firstbaron
+        data_type: bigint
+      - name: barons
+        data_type: bigint
+      - name: opp_barons
+        data_type: bigint
+      - name: firsttower
+        data_type: bigint
+      - name: towers
+        data_type: bigint
+      - name: opp_towers
+        data_type: bigint
+      - name: firstmidtower
+        data_type: bigint
+      - name: firsttothreetowers
+        data_type: bigint
+      - name: turretplates
+        data_type: varchar
+      - name: opp_turretplates
+        data_type: varchar
+      - name: inhibitors
+        data_type: bigint
+      - name: opp_inhibitors
+        data_type: bigint
+      - name: damagetochampions
+        data_type: bigint
+      - name: dpm
+        data_type: double
+      - name: damageshare
+        data_type: double
+      - name: damagetakenperminute
+        data_type: double
+      - name: damagemitigatedperminute
+        data_type: double
+      - name: wardsplaced
+        data_type: bigint
+      - name: wpm
+        data_type: double
+      - name: wardskilled
+        data_type: bigint
+      - name: wcpm
+        data_type: double
+      - name: controlwardsbought
+        data_type: bigint
+      - name: visionscore
+        data_type: bigint
+      - name: vspm
+        data_type: double
+      - name: totalgold
+        data_type: bigint
+      - name: earnedgold
+        data_type: bigint
+      - name: earned gpm
+        data_type: double
+      - name: earnedgoldshare
+        data_type: double
+      - name: goldspent
+        data_type: bigint
+      - name: gspd
+        data_type: double
+      - name: gpr
+        data_type: double
+      - name: total cs
+        data_type: bigint
+      - name: minionkills
+        data_type: bigint
+      - name: monsterkills
+        data_type: bigint
+      - name: monsterkillsownjungle
+        data_type: bigint
+      - name: monsterkillsenemyjungle
+        data_type: bigint
+      - name: cspm
+        data_type: double
+      - name: goldat10
+        data_type: bigint
+      - name: xpat10
+        data_type: bigint
+      - name: csat10
+        data_type: bigint
+      - name: opp_goldat10
+        data_type: bigint
+      - name: opp_xpat10
+        data_type: bigint
+      - name: opp_csat10
+        data_type: bigint
+      - name: golddiffat10
+        data_type: bigint
+      - name: xpdiffat10
+        data_type: bigint
+      - name: csdiffat10
+        data_type: bigint
+      - name: killsat10
+        data_type: bigint
+      - name: assistsat10
+        data_type: bigint
+      - name: deathsat10
+        data_type: bigint
+      - name: opp_killsat10
+        data_type: bigint
+      - name: opp_assistsat10
+        data_type: bigint
+      - name: opp_deathsat10
+        data_type: bigint
+      - name: goldat15
+        data_type: bigint
+      - name: xpat15
+        data_type: bigint
+      - name: csat15
+        data_type: bigint
+      - name: opp_goldat15
+        data_type: bigint
+      - name: opp_xpat15
+        data_type: bigint
+      - name: opp_csat15
+        data_type: bigint
+      - name: golddiffat15
+        data_type: bigint
+      - name: xpdiffat15
+        data_type: bigint
+      - name: csdiffat15
+        data_type: bigint
+      - name: killsat15
+        data_type: bigint
+      - name: assistsat15
+        data_type: bigint
+      - name: deathsat15
+        data_type: bigint
+      - name: opp_killsat15
+        data_type: bigint
+      - name: opp_assistsat15
+        data_type: bigint
+      - name: opp_deathsat15
+        data_type: bigint
+      - name: goldat20
+        data_type: bigint
+      - name: xpat20
+        data_type: bigint
+      - name: csat20
+        data_type: bigint
+      - name: opp_goldat20
+        data_type: bigint
+      - name: opp_xpat20
+        data_type: bigint
+      - name: opp_csat20
+        data_type: bigint
+      - name: golddiffat20
+        data_type: bigint
+      - name: xpdiffat20
+        data_type: bigint
+      - name: csdiffat20
+        data_type: bigint
+      - name: killsat20
+        data_type: bigint
+      - name: assistsat20
+        data_type: bigint
+      - name: deathsat20
+        data_type: bigint
+      - name: opp_killsat20
+        data_type: bigint
+      - name: opp_assistsat20
+        data_type: bigint
+      - name: opp_deathsat20
+        data_type: bigint
+      - name: goldat25
+        data_type: bigint
+      - name: xpat25
+        data_type: bigint
+      - name: csat25
+        data_type: bigint
+      - name: opp_goldat25
+        data_type: bigint
+      - name: opp_xpat25
+        data_type: bigint
+      - name: opp_csat25
+        data_type: bigint
+      - name: golddiffat25
+        data_type: bigint
+      - name: xpdiffat25
+        data_type: bigint
+      - name: csdiffat25
+        data_type: bigint
+      - name: killsat25
+        data_type: bigint
+      - name: assistsat25
+        data_type: bigint
+      - name: deathsat25
+        data_type: bigint
+      - name: opp_killsat25
+        data_type: bigint
+      - name: opp_assistsat25
+        data_type: bigint
+      - name: opp_deathsat25
+        data_type: bigint
