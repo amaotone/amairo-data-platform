@@ -1,0 +1,38 @@
+name: Deploy dbt Docs
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    working-directory: dbt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+      - name: Setup python
+        run: |
+          uv python install
+          uv sync
+
+      - name: Generate dbt docs
+        run: |
+          dbt deps
+          dbt build
+          dbt docs generate
+
+      - name: Copy files
+        run: |
+          mkdir -p docs
+          cp -r target/*.json target/index.html docs/
+      
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy docs --project-name=${{ secrets.CLOUDFLARE_PAGES_PROJECT_NAME }}
