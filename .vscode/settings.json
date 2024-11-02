@@ -16,6 +16,7 @@
     "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
   },
   "[jinja-yaml]": {
-    "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
+    "editor.defaultFormatter": "innoverio.vscode-dbt-power-user",
+    "prettier.tabWidth": 2
   }
 }

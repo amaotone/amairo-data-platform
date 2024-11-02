@@ -1,9 +1,0 @@
-version: 2
-
-seeds:
-  - name: champions_stats
-    description: チャンピオンの統計情報
-  - name: matches_stats
-    description: 試合の統計情報
-  - name: players_stats
-    description: プレイヤーの統計情報
