@@ -6,8 +6,10 @@ on:
 
 jobs:
   deploy:
-    working-directory: dbt
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: dbt
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
