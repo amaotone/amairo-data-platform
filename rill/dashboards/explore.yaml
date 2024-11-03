@@ -1,0 +1,10 @@
+# Explore YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/explore-dashboards
+
+type: explore
+
+title: "My metrics dashboard"
+metrics_view: example_metrics_view # Choose a metrics view to underpin the dashboard
+
+dimensions: '*'
+measures: '*'
